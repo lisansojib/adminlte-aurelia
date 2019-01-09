@@ -1,31 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Aurelia</title>
-    <!--The FontAwesome version is locked at 4.6.3 in the package.json file to keep this from breaking.-->
-    <link rel="stylesheet" href="jspm_packages/npm/font-awesome@4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles/styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
 
-  <body aurelia-app="main">
-    <div class="splash">
-      <div class="message">Aurelia Navigation Skeleton</div>
-      <i class="fa fa-spinner fa-spin"></i>
-    </div>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>AdminLTE 2 | Fixed Layout</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" href="jspm_packages/github/twbs/bootstrap@3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="jspm_packages/npm/font-awesome@4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="src/template/css/AdminLTE.min.css">
+	<link rel="stylesheet" href="src/template/css/skins/skin-blue.css">
 
-    <!-- The bluebird version is locked at 3.4.1 in the package.json file to keep this from breaking -->
-    <!-- We include bluebird to bypass Edge's very slow Native Promise implementation. The Edge team -->
-    <!-- has fixed the issues with their implementation with these fixes being distributed with the  -->
-    <!-- Windows 10 Anniversary Update on 2 August 2016. Once that update has pushed out, you may    -->
-    <!-- consider removing bluebird from your project and simply using native promises if you do     -->
-    <!-- not need to support Internet Explorer.                                                      -->
-    <script src="jspm_packages/system.js"></script>
-    <script src="config.js"></script>
-    <script src="jspm_packages/npm/bluebird@3.4.1/js/browser/bluebird.min.js"></script>
-    <script>
-      System.import('aurelia-bootstrapper');
-    </script>
-  </body>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+	<!-- Google Font -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+
+<body aurelia-app="main" class="hold-transition skin-blue fixed sidebar-mini">
+	<div class="splash">
+		<div class="message">Aurelia Navigation Skeleton</div>
+		<i class="fa fa-spinner fa-spin"></i>
+	</div>
+
+	<!-- The bluebird version is locked at 3.4.1 in the package.json file to keep this from breaking -->
+	<!-- We include bluebird to bypass Edge's very slow Native Promise implementation. The Edge team -->
+	<!-- has fixed the issues with their implementation with these fixes being distributed with the  -->
+	<!-- Windows 10 Anniversary Update on 2 August 2016. Once that update has pushed out, you may    -->
+	<!-- consider removing bluebird from your project and simply using native promises if you do     -->
+	<!-- not need to support Internet Explorer.                                                      -->
+	<script src="jspm_packages/system.js"></script>
+	<script src="config.js"></script>
+	<script src="jspm_packages/npm/bluebird@3.4.1/js/browser/bluebird.min.js"></script>
+	<script>
+		System.import('aurelia-bootstrapper');
+	</script>
+</body>
+
 </html>
