@@ -1,4 +1,12 @@
+import {inject} from 'aurelia-framework';
+import {PushMenu} from './template/js/push-menu';
+
+@inject(PushMenu)
 export class App {
+  constructor(pushMenu){
+    this.pushMenu = pushMenu;
+  }
+
   configureRouter(config, router) {
     config.title = 'Aurelia';
     config.map([
@@ -8,5 +16,12 @@ export class App {
     ]);
 
     this.router = router;
+  }
+
+  attached(){
+    $(document).on('click', '[data-toggle="push-menu"]', (e) => {
+      e.preventDefault();
+      this.pushMenu.toggle();
+    });
   }
 }

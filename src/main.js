@@ -1,4 +1,6 @@
 import 'bootstrap';
+import 'fastclick';
+import 'jquery-slimscroll';
 
 export function configure(aurelia) {
   aurelia.use
