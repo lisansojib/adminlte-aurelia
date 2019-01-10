@@ -28,16 +28,11 @@ export class Tree {
         this.trigger = '.treeview a';
     }
 
-    Tree(element, options) {
-        this.element = element;
-        this.options = options;
-
+    activate(){
         $(this.element).addClass(ClassName.tree);
-
         $(Selector.treeview + Selector.active, this.element).addClass(ClassName.open);
-
         this._setUpListeners();
-    };
+    }
 
     toggle(link, event) {
         var treeviewMenu = link.next(Selector.treeviewMenu);
@@ -48,7 +43,7 @@ export class Tree {
             return;
         }
 
-        if (!this.options.followLink || link.attr('href') === '#') {
+        if (!this.followLink || link.attr('href') === '#') {
             event.preventDefault();
         }
 
@@ -62,14 +57,14 @@ export class Tree {
     expand(tree, parent) {
         var expandedEvent = $.Event(Event.expanded);
 
-        if (this.options.accordion) {
+        if (this.accordion) {
             var openMenuLi = parent.siblings(Selector.open);
             var openTree = openMenuLi.children(Selector.treeviewMenu);
             this.collapse(openTree, openMenuLi);
         }
 
         parent.addClass(ClassName.open);
-        tree.slideDown(this.options.animationSpeed, function () {
+        tree.slideDown(this.animationSpeed, function () {
             $(this.element).trigger(expandedEvent);
         }.bind(this));
     };
@@ -79,7 +74,7 @@ export class Tree {
 
         //tree.find(Selector.open).removeClass(ClassName.open);
         parentLi.removeClass(ClassName.open);
-        tree.slideUp(this.options.animationSpeed, function () {
+        tree.slideUp(this.animationSpeed, function () {
             //tree.find(Selector.open + ' > ' + Selector.treeview).slideUp();
             $(this.element).trigger(collapsedEvent);
         }.bind(this));
@@ -90,7 +85,7 @@ export class Tree {
     _setUpListeners() {
         var that = this;
 
-        $(this.element).on('click', this.options.trigger, function (event) {
+        $(this.element).on('click', this.trigger, function (event) {
             that.toggle($(this), event);
         });
     };

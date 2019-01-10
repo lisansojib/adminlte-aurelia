@@ -64,7 +64,6 @@ export class Layout {
     };
 
     fix() {
-        debugger;
         // Remove overflow from .wrapper if layout-boxed exists
         $(this.Selector.layoutBoxed + ' > ' + this.Selector.wrapper).css('overflow', 'hidden');
 
@@ -100,7 +99,6 @@ export class Layout {
     };
 
     fixSidebar() {
-        debugger;
         // Make sure the body tag has the .fixed class
         if (!$('body').hasClass(this.ClassName.fixed)) {
             if (typeof $.fn.slimScroll !== 'undefined') {

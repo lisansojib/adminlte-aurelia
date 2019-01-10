@@ -52,7 +52,6 @@ export class PushMenu {
     }
 
     toggle() {
-        debugger;
         var windowWidth = $(window).width();
         var isOpen = !$('body').hasClass(this.ClassName.collapsed);
 
