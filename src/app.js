@@ -1,10 +1,12 @@
 import {inject} from 'aurelia-framework';
 import {PushMenu} from './template/js/push-menu';
+import {Layout} from './template/js/layout';
 
-@inject(PushMenu)
+@inject(PushMenu, Layout)
 export class App {
-  constructor(pushMenu){
+  constructor(pushMenu, layout){
     this.pushMenu = pushMenu;
+    this.layout = layout;
   }
 
   configureRouter(config, router) {

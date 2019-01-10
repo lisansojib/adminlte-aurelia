@@ -39,40 +39,41 @@ export class Layout {
         }
 
         if (!this.bindedResize) {
-            $(window).resize(function () {
+            $(window).resize( () => {
                 this.fix();
                 this.fixSidebar();
 
-                $(this.Selector.logo + ', ' + this.Selector.sidebar).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+                $(this.Selector.logo + ', ' + this.Selector.sidebar).one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', () => {
                     this.fix();
                     this.fixSidebar();
-                }.bind(this));
-            }.bind(this));
+                });
+            });
 
             this.bindedResize = true;
         }
 
-        $(this.Selector.sidebarMenu).on('expanded.tree', function () {
+        $(this.Selector.sidebarMenu).on('expanded.tree', () => {
             this.fix();
             this.fixSidebar();
-        }.bind(this));
+        });
 
-        $(this.Selector.sidebarMenu).on('collapsed.tree', function () {
+        $(this.Selector.sidebarMenu).on('collapsed.tree', () => {
             this.fix();
             this.fixSidebar();
-        }.bind(this));
+        });
     };
 
     fix() {
+        debugger;
         // Remove overflow from .wrapper if layout-boxed exists
         $(this.Selector.layoutBoxed + ' > ' + this.Selector.wrapper).css('overflow', 'hidden');
 
         // Get window height and the wrapper height
-        var footerHeight = $(this.Selector.mainFooter).outerHeight() || 0;
-        var headerHeight = $(this.Selector.mainHeader).outerHeight() || 0;
-        var neg = headerHeight + footerHeight;
-        var windowHeight = $(window).height();
-        var sidebarHeight = $(Selector.sidebar).height() || 0;
+        let footerHeight = $(this.Selector.mainFooter).outerHeight() || 0;
+        let headerHeight = $(this.Selector.mainHeader).outerHeight() || 0;
+        let neg = headerHeight + footerHeight;
+        let windowHeight = $(window).height();
+        let sidebarHeight = $(this.Selector.sidebar).height() || 0;
 
         // Set the min-height of the content and sidebar based on
         // the height of the document.
@@ -99,6 +100,7 @@ export class Layout {
     };
 
     fixSidebar() {
+        debugger;
         // Make sure the body tag has the .fixed class
         if (!$('body').hasClass(this.ClassName.fixed)) {
             if (typeof $.fn.slimScroll !== 'undefined') {
