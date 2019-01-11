@@ -23,7 +23,7 @@
     "e2e": "gulp serve webdriver-standalone e2e"
   },
   "devDependencies": {
-    "aurelia-bundler": "^0.4.0",
+    "aurelia-bundler": "^0.7.0",
     "aurelia-protractor-plugin": "^1.0.0",
     "aurelia-tools": "^1.0.0",
     "babel-core": "^6.18.2",
@@ -54,7 +54,7 @@
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
     "karma-jasmine": "^1.0.2",
-    "karma-jspm": "2.2.0",
+    "karma-jspm": "^2.2.3",
     "object.assign": "^4.0.4",
     "protractor": "^4.0.10",
     "require-dir": "^0.3.2",

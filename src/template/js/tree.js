@@ -21,25 +21,28 @@ export class Tree {
         expanded: 'expanded.tree'
     };
 
-    constructor() {
+    constructor(tree) {
         this.animationSpeed = 500;
         this.accordion = true;
         this.followLink = false;
         this.trigger = '.treeview a';
     }
 
-    activate(){
-        $(this.element).addClass(ClassName.tree);
-        $(Selector.treeview + Selector.active, this.element).addClass(ClassName.open);
+    activate() {
+        if (!this.element)
+            this.element = $('ul[data-widget="tree"]');
+
+        this.element.addClass(this.ClassName.tree);
+        $(this.Selector.treeview + this.Selector.active, this.element).addClass(this.ClassName.open);
         this._setUpListeners();
     }
 
     toggle(link, event) {
-        var treeviewMenu = link.next(Selector.treeviewMenu);
+        var treeviewMenu = link.next(this.Selector.treeviewMenu);
         var parentLi = link.parent();
-        var isOpen = parentLi.hasClass(ClassName.open);
+        var isOpen = parentLi.hasClass(this.ClassName.open);
 
-        if (!parentLi.is(Selector.treeview)) {
+        if (!parentLi.is(this.Selector.treeview)) {
             return;
         }
 
@@ -55,38 +58,36 @@ export class Tree {
     };
 
     expand(tree, parent) {
-        var expandedEvent = $.Event(Event.expanded);
+        var expandedEvent = $.Event(this.Event.expanded);
 
         if (this.accordion) {
-            var openMenuLi = parent.siblings(Selector.open);
-            var openTree = openMenuLi.children(Selector.treeviewMenu);
+            var openMenuLi = parent.siblings(this.Selector.open);
+            var openTree = openMenuLi.children(this.Selector.treeviewMenu);
             this.collapse(openTree, openMenuLi);
         }
 
-        parent.addClass(ClassName.open);
-        tree.slideDown(this.animationSpeed, function () {
-            $(this.element).trigger(expandedEvent);
-        }.bind(this));
+        parent.addClass(this.ClassName.open);
+        tree.slideDown(this.animationSpeed, () => {
+            this.element.trigger(expandedEvent);
+        });
     };
 
     collapse(tree, parentLi) {
-        var collapsedEvent = $.Event(Event.collapsed);
+        var collapsedEvent = $.Event(this.Event.collapsed);
 
         //tree.find(Selector.open).removeClass(ClassName.open);
-        parentLi.removeClass(ClassName.open);
-        tree.slideUp(this.animationSpeed, function () {
+        parentLi.removeClass(this.ClassName.open);
+        tree.slideUp(this.animationSpeed, () => {
             //tree.find(Selector.open + ' > ' + Selector.treeview).slideUp();
-            $(this.element).trigger(collapsedEvent);
-        }.bind(this));
+            this.element.trigger(collapsedEvent);
+        });
     };
 
     // Private
 
     _setUpListeners() {
-        var that = this;
-
-        $(this.element).on('click', this.trigger, function (event) {
-            that.toggle($(this), event);
+        this.element.on('click', this.trigger, (event) => {
+            this.toggle($(event.currentTarget), event);
         });
     };
 }
