@@ -29,8 +29,7 @@ export class App {
       e.preventDefault();
       this.pushMenu.toggle();
     });
-
-    this.tree.activate();
+    
     this.boxWidget.activate();
   }
 }
