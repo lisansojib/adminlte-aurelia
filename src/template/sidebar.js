@@ -20,7 +20,13 @@ export class Sidebar {
 				{
 					id: 32, title: "Level 3.2", child: [
 						{ id: 311, title: "Level 3.2.1", child: [] },
-						{ id: 312, title: "Level 3.2.2", child: [] }
+						{ id: 312, title: "Level 3.2.2", child: [] },
+						{
+							id: 312, title: "Level 3.2.3", child: [
+								{ id: 311, title: "Level 3.2.3.1", child: [] },
+								{ id: 312, title: "Level 3.2.3.2", child: [] }
+							]
+						}
 					]
 				},
 				{ id: 33, title: "Level 3.3", child: [] }
@@ -34,7 +40,6 @@ export class Sidebar {
 	}
 
 	attached() {
-		debugger;
 		$(".sidebar-menu").append(this.itemTemplate);
 		this.tree.activate();
 	}
@@ -42,14 +47,14 @@ export class Sidebar {
 	generateMenu(menuList) {
 		for (let item of menuList) {
 			if (!item.child.length) {
-				this.itemTemplate += `<li class="${this.activeMenu ? 'active' : ''}"><a href="#!"><i class="fa fa-circle-o"></i>${item.title}</a></li>`;
+				this.itemTemplate += `<li class="${this.activeMenu ? 'active' : ''}"><a href="#!"><i class="${item.icon ? item.icon : 'fa fa-circle-o'}"></i>${item.title}</a></li>`;
 				this.activeMenu = false;
 				continue;
 			}
 			else {
 				this.itemTemplate += `<li class="treeview ${this.activeMenu ? 'active' : ''}">`;
 				this.itemTemplate += '<a href="#">'
-					+ `<i class="fa fa-dashboard"></i>${item.title}<span></span>`
+					+ `<i class="fa fa-circle"></i>${item.title}<span></span>`
 					+ '<span class="pull-right-container">'
 					+ '<i class="fa fa-angle-left pull-right"></i>'
 					+ '</span>'

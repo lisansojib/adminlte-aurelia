@@ -29,7 +29,7 @@ export class PushMenu {
 
     constructor() {
         this.collapseScreenSize = 767;
-        this.isExpandOnHover = false;
+        this.isExpandOnHover = true;
         this.expandTransitionDelay = 200;
 
         if (this.isExpandOnHover
@@ -38,15 +38,15 @@ export class PushMenu {
             $('body').addClass(this.ClassName.expandFeature);
         }
 
-        $(this.Selector.contentWrapper).click(function () {
+        $(this.Selector.contentWrapper).click( () => {
             // Enable hide menu when clicking on the content-wrapper on small screens
             if ($(window).width() <= this.collapseScreenSize && $('body').hasClass(this.ClassName.open)) {
                 this.close();
             }
-        }.bind(this));
+        });
 
         // __Fix for android devices
-        $(this.Selector.searchInput).click(function (e) {
+        $(this.Selector.searchInput).click( (e) => {
             e.stopPropagation();
         });
     }
@@ -91,16 +91,17 @@ export class PushMenu {
     };
 
     expandOnHover() {
-        $(this.Selector.mainSidebar).hover(function () {
+        debugger;
+        $(this.Selector.mainSidebar).hover( () => {
             if ($('body').is(this.Selector.mini + this.Selector.collapsed)
                 && $(window).width() > this.collapseScreenSize) {
                 this.expand();
             }
-        }.bind(this), function () {
+        }, () => {
             if ($('body').is(this.Selector.expanded)) {
                 this.collapse();
             }
-        }.bind(this));
+        });
     };
 
     expand() {
