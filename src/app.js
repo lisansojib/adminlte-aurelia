@@ -17,8 +17,7 @@ export class App {
     config.title = 'AdminLTE 2 | Fixed Layout';
     config.map([
       { route: ['', 'welcome'], name: 'welcome', moduleId: 'welcome', nav: true },
-      { route: 'users', name: 'users', moduleId: 'users', nav: true, title: 'Github Users' },
-      { route: 'child-router', name: 'child-router', moduleId: 'child-router', nav: true, title: 'Child Router' }
+      { route: 'register', name: 'register', moduleId: 'auth/register', nav: true, title: 'Register' }
     ]);
 
     this.router = router;
