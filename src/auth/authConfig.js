@@ -9,7 +9,7 @@ export default {
     // SPA related options
     // ===================
     // The SPA url to which the user is redirected after a successful login
-    loginRedirect: '#/',
+    loginRedirect: '#/welcome',
     // The SPA url to which the user is redirected after a successful logout
     logoutRedirect: '#/',
     // The SPA route used when an unauthenticated user tries to access an SPA page that requires authentication

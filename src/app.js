@@ -16,7 +16,8 @@ export class App {
   configureRouter(config, router) {
     config.title = 'AdminLTE 2 | Fixed Layout';
     config.map([
-      { route: ['', 'welcome'], name: 'welcome', moduleId: 'welcome', nav: true },
+      { route: ['', 'login'], name: 'login', moduleId: 'auth/login', nav: true, title: 'Login' },
+      { route: 'welcome', name: 'welcome', moduleId: 'welcome', nav: true },
       { route: 'register', name: 'register', moduleId: 'auth/register', nav: true, title: 'Register' }
     ]);
 
@@ -28,7 +29,7 @@ export class App {
       e.preventDefault();
       this.pushMenu.toggle();
     });
-    
+
     this.boxWidget.activate();
   }
 }

@@ -6,7 +6,6 @@ export class Register {
 	username;
 	email;
 	password;
-	isRemembered;
 
 	constructor(authService) {
 		this.authService = authService;
@@ -31,12 +30,5 @@ export class Register {
 					console.log(errorMessage);
 				  })
 			});
-	}
-
-	setRemember() {
-		if (this.isRemembered)
-			localStorage.setItem("aurelia-remember", true);
-		else
-			localStorage.removeItem("aurelia-remember");
 	}
 }
