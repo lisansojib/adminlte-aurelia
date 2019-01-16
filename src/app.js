@@ -1,16 +1,7 @@
 import { inject } from 'aurelia-framework';
-import { PushMenu } from './template/js/push-menu';
-import { Layout } from './template/js/layout';
-import { Tree } from './template/js/tree';
-import { BoxWidget } from './template/js/box-widget';
 
-@inject(PushMenu, Layout, Tree, BoxWidget)
 export class App {
-  constructor(pushMenu, layout, tree, boxWidget) {
-    this.pushMenu = pushMenu;
-    this.layout = layout;
-    this.tree = tree;
-    this.boxWidget = boxWidget;
+  constructor() {
   }
 
   configureRouter(config, router) {
@@ -25,11 +16,6 @@ export class App {
   }
 
   attached() {
-    $(document).on('click', '[data-toggle="push-menu"]', (e) => {
-      e.preventDefault();
-      this.pushMenu.toggle();
-    });
-
-    this.boxWidget.activate();
+    $('body').layout('fix')
   }
 }

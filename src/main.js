@@ -1,4 +1,3 @@
-import 'bootstrap';
 import 'fastclick';
 import 'jquery-slimscroll';
 import 'fetch';

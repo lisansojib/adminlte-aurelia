@@ -1,7 +1,5 @@
 import { inject } from 'aurelia-framework';
-import { Tree } from './js/tree';
 
-@inject(Tree)
 export class Sidebar {
 	activeMenu = true;
 	itemTemplate = "";
@@ -34,14 +32,13 @@ export class Sidebar {
 		}
 	];
 
-	constructor(tree) {
-		this.tree = tree;
+	constructor() {
 		this.generateMenu(this.data);
 	}
 
 	attached() {
-		$(".sidebar-menu").append(this.itemTemplate);
-		this.tree.activate();
+		// $(".sidebar-menu").append(this.itemTemplate);
+		$(".sidebar-menu").tree();
 	}
 
 	generateMenu(menuList) {
