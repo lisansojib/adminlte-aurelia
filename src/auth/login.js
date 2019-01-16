@@ -23,15 +23,29 @@ export class Login {
 	submit() {
 		var postData = "grant_type=password&username=" + this.username + "&password=" + this.password;
 		debugger;
-		return this.authService
-			.login(postData, {mode: 'cors'})
+		// this.authService
+		// 	.login(postData, { mode: 'cors' })
+		// 	.then(response => {
+		// 		debugger;
+		// 		console.log(response);
+		// 	})
+		// 	.catch(err => {
+		// 		debugger;
+		// 		console.log(err);
+		// 	});
+
+		this.authService.login({
+			username: this.username,
+			password: this.password,
+			grant_type: "password"
+		}, { mode: 'cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
 			.then(response => {
 				debugger;
-				console.log(response);
+				alert('Login successful');
 			})
 			.catch(err => {
 				debugger;
-				console.log(err);
+				alert("Invalid email or password.");
 			});
 	};
 
