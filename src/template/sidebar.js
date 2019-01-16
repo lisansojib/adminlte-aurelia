@@ -37,21 +37,21 @@ export class Sidebar {
 	}
 
 	attached() {
-		// $(".sidebar-menu").append(this.itemTemplate);
+		$(".sidebar-menu").append(this.itemTemplate);
 		$(".sidebar-menu").tree();
 	}
 
 	generateMenu(menuList) {
 		for (let item of menuList) {
 			if (!item.child.length) {
-				this.itemTemplate += `<li class="${this.activeMenu ? 'active' : ''}"><a href="#!"><i class="${item.icon ? item.icon : 'fa fa-circle-o'}"></i>${item.title}</a></li>`;
+				this.itemTemplate += `<li><a href="#!"><i class="fa fa-circle-o"></i> ${item.title}</a></li>`;
 				this.activeMenu = false;
 				continue;
 			}
 			else {
 				this.itemTemplate += `<li class="treeview ${this.activeMenu ? 'active' : ''}">`;
 				this.itemTemplate += '<a href="#">'
-					+ `<i class="fa fa-circle"></i>${item.title}<span></span>`
+					+ `<i class="fa fa-circle"></i><span>${item.title}</span>`
 					+ '<span class="pull-right-container">'
 					+ '<i class="fa fa-angle-left pull-right"></i>'
 					+ '</span>'
