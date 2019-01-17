@@ -4,30 +4,30 @@ export class Sidebar {
 	activeMenu = true;
 	itemTemplate = "";
 	data = [
-		{ id: 1, title: "Level 1", child: [] },
+		{ id: 1, title: "Level 1", icon:'', route:"#welcome", child: [] },
 		{
 			id: 2, title: "Level 2", child: [
-				{ id: 21, title: "Level 2.1", child: [] },
-				{ id: 22, title: "Level 2.2", child: [] },
-				{ id: 23, title: "Level 2.3", child: [] }
+				{ id: 21, title: "Level 2.1", icon:'', route:"#welcome", child: [] },
+				{ id: 22, title: "Level 2.2", icon:'', route:"#welcome", child: [] },
+				{ id: 23, title: "Level 2.3", icon:'', route:"#welcome", child: [] }
 			]
 		},
 		{
-			id: 3, title: "Level 3", child: [
-				{ id: 31, title: "Level 3.1", child: [] },
+			id: 3, title: "Level 3", icon:'', route:"#welcome", child: [
+				{ id: 31, title: "Level 3.1", icon:'', route:"#welcome", child: [] },
 				{
-					id: 32, title: "Level 3.2", child: [
-						{ id: 311, title: "Level 3.2.1", child: [] },
-						{ id: 312, title: "Level 3.2.2", child: [] },
+					id: 32, title: "Level 3.2", icon:'', route:"#welcome", child: [
+						{ id: 311, title: "Level 3.2.1", icon:'', route:"#welcome", child: [] },
+						{ id: 312, title: "Level 3.2.2", icon:'', route:"#welcome", child: [] },
 						{
-							id: 312, title: "Level 3.2.3", child: [
-								{ id: 311, title: "Level 3.2.3.1", child: [] },
-								{ id: 312, title: "Level 3.2.3.2", child: [] }
+							id: 312, title: "Level 3.2.3", icon:'', route:"#welcome", child: [
+								{ id: 311, title: "Level 3.2.3.1", icon:'', route:"#welcome", child: [] },
+								{ id: 312, title: "Level 3.2.3.2", icon:'', route:"#welcome", child: [] }
 							]
 						}
 					]
 				},
-				{ id: 33, title: "Level 3.3", child: [] }
+				{ id: 33, title: "Level 3.3", icon:'', route:"#welcome", child: [] }
 			]
 		}
 	];
@@ -44,7 +44,7 @@ export class Sidebar {
 	generateMenu(menuList) {
 		for (let item of menuList) {
 			if (!item.child.length) {
-				this.itemTemplate += `<li><a href="#!"><i class="fa fa-circle-o"></i> <span>${item.title}</span></a></li>`;
+				this.itemTemplate += `<li><a href="${item.route}"><i class="fa fa-circle-o"></i> <span>${item.title}</span></a></li>`;
 				this.activeMenu = false;
 				continue;
 			}
