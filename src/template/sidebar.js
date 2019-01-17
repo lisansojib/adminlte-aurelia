@@ -44,7 +44,7 @@ export class Sidebar {
 	generateMenu(menuList) {
 		for (let item of menuList) {
 			if (!item.child.length) {
-				this.itemTemplate += `<li><a href="#!"><i class="fa fa-circle-o"></i> ${item.title}</a></li>`;
+				this.itemTemplate += `<li><a href="#!"><i class="fa fa-circle-o"></i> <span>${item.title}</span></a></li>`;
 				this.activeMenu = false;
 				continue;
 			}
