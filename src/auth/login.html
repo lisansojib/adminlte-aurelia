@@ -1,0 +1,36 @@
+<template>
+    <div class="container">
+		<div class="row">
+			<div class="center-block">
+				<form submit.delegate="submit()">
+					<h1 class="text-center">Welcome to</h1>
+					<h2 class="text-center">Epy</h2>
+					<br>
+					<div class="form-group">
+						<label class="sr-only" for="username">Username</label>
+						<input type="text" class="form-control" id="username" placeholder="Username" value.bind="username">
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="password">Password</label>
+						<input type="password" class="form-control" id="password" placeholder="Password" value.bind="password">
+					</div>
+					<div class="form-group">
+						<div class="checkbox">
+							<label>
+								<input id="IsRemember" type="checkbox" style="max-width: 14px" checked.bind="isRemembered" change.trigger="setRemember()" />Remember me
+								<!--<span style="padding-left:80px"><a href="#/forgot">Forgot password?</a></span>-->
+							</label>
+						</div>
+					</div>
+					<div class="text-center">
+						<button type="submit" class="btn btn-primary text-center">Sign In</button>
+					</div>
+					<hr>
+					<p class="pull-right">
+						Not register yet? &nbsp; &nbsp; <a href="#/register">Sign Up</a></span>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+</template>

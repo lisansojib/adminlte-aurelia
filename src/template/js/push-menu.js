@@ -91,7 +91,6 @@ export class PushMenu {
     };
 
     expandOnHover() {
-        debugger;
         $(this.Selector.mainSidebar).hover( () => {
             if ($('body').is(this.Selector.mini + this.Selector.collapsed)
                 && $(window).width() > this.collapseScreenSize) {
